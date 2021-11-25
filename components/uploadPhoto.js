@@ -6,8 +6,6 @@ import CameraRoll from "@react-native-community/cameraroll"
 
 class UploadPhoto extends Component{
   
-
-
     constructor(props) {
         super(props);
         this.state = {
@@ -17,10 +15,7 @@ class UploadPhoto extends Component{
             icontoggle:false
         }
         
-    }
-    
-    
-        
+    }      
       async componentDidMount(){
             
         if (Platform.OS === 'android') {
@@ -118,6 +113,7 @@ class UploadPhoto extends Component{
     }
     
 }
+
 
 const styles = StyleSheet.create({
   views: {

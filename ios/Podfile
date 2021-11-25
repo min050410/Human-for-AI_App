@@ -20,6 +20,8 @@ target 'aiforhuman' do
 
   pod 'react-native-cameraroll', :path => '../node_modules/@react-native-community/cameraroll'
 
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
   target 'aiforhumanTests' do
     inherit! :complete
     # Pods for testing
