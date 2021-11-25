@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { BackHandler} from 'react-native';
 import { WebView } from 'react-native-webview';
 // import {RNCamera} from 'react-native-camera';
-import TakePhoto from './components/TakePhoto';
+import CapturePhoto from './components/capturePhoto';
+import UploadPhoto from './components/uploadPhoto';
+
 
 class MyWeb extends Component {
   webView = {
@@ -43,7 +45,13 @@ class MyWeb extends Component {
       //   type={RNCamera.Constants.Type.back}
       //   captureAudio={false}
       // />
-      <TakePhoto/>
+
+      //takePhoto test
+      // <CapturePhoto/>
+
+      //uploadPhoto test
+      <UploadPhoto/>
+      
     );
   }
 }
