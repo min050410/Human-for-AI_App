@@ -3,11 +3,13 @@ import { Text, View, StyleSheet,TouchableOpacity } from 'react-native';
 import { WithLocalSvg } from 'react-native-svg';
 import Imagesvg from '../image/Imagesvg.svg';
 
-const MainPage = () => {
+const MainPage = ({ navigation }) => {
     return(
         <View style={styles.wrap}>
             <View style={styles.card}>
-                <TouchableOpacity onPress="">
+                <TouchableOpacity onPress={() =>
+                navigation.navigate('UploadPhoto')
+                }>
                 <View style={styles.inCard}>
                     <WithLocalSvg
                         style={styles.svg}
@@ -18,7 +20,11 @@ const MainPage = () => {
                 </View>
                 </TouchableOpacity>
             <View style={styles.bottons}>
+                <TouchableOpacity onPress={() =>
+                navigation.navigate('CapturePhoto', {name: 'Jane'})
+                }>
                 <View style={styles.capture}><Text style={{ color: '#777575' }}>사진 찍기</Text></View>
+                </TouchableOpacity>
                 <View style={styles.read}><Text style={{ color: 'white' }}>그림 읽기</Text></View>
             </View>
             </View>
