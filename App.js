@@ -34,6 +34,7 @@ class MyWeb extends Component {
 
   render() {
     return (
+      //webView
       // <WebView
       //   source={{ uri: "https://github.com/Human-for-AI/" }}
       //   ref={(webView) => { this.webView.ref = webView; }}
@@ -46,11 +47,11 @@ class MyWeb extends Component {
       //   captureAudio={false}
       // />
 
-      //takePhoto test
-      // <CapturePhoto/>
+      //CapturePhoto test
+      <CapturePhoto/>
 
       //uploadPhoto test
-      <UploadPhoto/>
+      // <UploadPhoto/>
       
     );
   }
