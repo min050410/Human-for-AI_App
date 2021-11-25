@@ -10,6 +10,7 @@ const CapturePhoto = () => {
     const cameraRef = React.useRef(null); // useRef로 camera를 위한 ref를 하나 만들어주고
 
     const [count, setCount] = useState(false)
+    const [img, setImg] = useState(false)
     //사진 찍기 함수
     const capturePhoto = async () => {
       setCount("3");
@@ -44,9 +45,16 @@ const CapturePhoto = () => {
           quality: 1,
           exif: true,
       });
-      // 사진 찍은 데이터값
-      console.log(data); 
-      // setCount(false);
+      // 사진 찍은 데이터값 - useState에 저장
+      console.log(data.uri); 
+
+      setImg(data.uri);
+      // img == 주소
+      // 여기서 서버와 연결
+
+
+      //후에 결과창으로 리다이렉트
+
     }
     }
     };
@@ -67,9 +75,7 @@ const CapturePhoto = () => {
           </View>
 
           <View style={styles.views}>
-            <TouchableOpacity onPress={capturePhoto
-            // capturePhot
-            }>
+            <TouchableOpacity onPress={capturePhoto}>
               <View style={styles.captureButton}>
               <Text>
               <Icon name="camera" size={30} color="#FFF" />
