@@ -12,6 +12,7 @@ const CapturePhoto = () => {
     const [count, setCount] = useState(false)
     //사진 찍기 함수
     const capturePhoto = async () => {
+      setCount("3");
       setTimeout(() => {
         onePhoto();
       }, 1000)
@@ -26,13 +27,13 @@ const CapturePhoto = () => {
       }, 3000)
       
       const onePhoto = () => {
-        setCount("3");
-      }
-      const twoPhoto = () => {
         setCount("2");
       }
-      const threePhoto = () => {
+      const twoPhoto = () => {
         setCount("1");
+      }
+      const threePhoto = () => {
+        setCount(false);
       }
 
       const exePhoto = async () => {
@@ -45,7 +46,7 @@ const CapturePhoto = () => {
       });
       // 사진 찍은 데이터값
       console.log(data); 
-      setCount(false);
+      // setCount(false);
     }
     }
     };
