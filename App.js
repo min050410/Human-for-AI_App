@@ -7,6 +7,15 @@ import UploadPhoto from './components/uploadPhoto';
 
 
 class MyWeb extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      iscam: false,
+      isGarrery: false,
+    }
+    
+  }
   webView = {
     canGoBack: false,
     ref: null,
@@ -32,28 +41,44 @@ class MyWeb extends Component {
     }
   }
 
-  render() {
-    return (
-      //webView
-      // <WebView
-      //   source={{ uri: "https://github.com/Human-for-AI/" }}
-      //   ref={(webView) => { this.webView.ref = webView; }}
-      //   onNavigationStateChange={(navState) => { this.webView.canGoBack = navState.canGoBack; }}
-      // />
-      // camera test
-      // <RNCamera
-      //   style={{width: 200, height: 200}}
-      //   type={RNCamera.Constants.Type.back}
-      //   captureAudio={false}
-      // />
+  
+  
 
+  render() {
+    if(this.state.iscam){
+      return <CapturePhoto/>
+    }
+    else if(this.state.isGarrery){
+      return <UploadPhoto/>
+    }
+    else{
+    return (
+      // webView
+      <WebView
+        source={{ uri: "https://github.com/Human-for-AI/" }}
+        ref={(webView) => { this.webView.ref = webView; }}
+        onNavigationStateChange={(navState) => { 
+          this.webView.canGoBack = navState.canGoBack; 
+          // console.log("current_path", navState.url);
+          if(navState.url == "https://github.com/orgs/Human-for-AI/repositories"){
+            this.setState( { iscam: 1 } )
+            console.log( this.state.iscam )
+          }
+          else if(navState.url == "https://github.com/orgs/Human-for-AI/packages"){
+            this.setState( { isGarrery: 1 } )
+            console.log( this.state.isGarrery )
+          }
+        }}
+      />
+      
       //CapturePhoto test
-      <CapturePhoto/>
+      // <CapturePhoto/>
 
       //uploadPhoto test
       // <UploadPhoto/>
       
-    );
+      );
+    }
   }
 }
 export default MyWeb
